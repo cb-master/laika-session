@@ -1,0 +1,22 @@
+{
+    "name": "cb-master/php-session-handler",
+    "description": "A php singleton file,pdo,redis or memcached session handler.",
+    "keywords": ["php", "session", "singleton", "redis", "pdo", "memcached", "handler"],
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "CBM\\Session\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "cb-master",
+            "email": "strblackhawk@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=8.1"
+    }
+}
