@@ -37,7 +37,7 @@ class Session
     {
         SessionManager::start();
         $for = strtoupper($for);
-        return $_SESSION[$for][$key] ?? null;
+        return $_SESSION[$for][$key] ?? '';
     }
 
     // Check Session Key Exist
