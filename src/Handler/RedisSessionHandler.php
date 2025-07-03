@@ -32,7 +32,7 @@ class RedisSessionHandler implements SessionDriverInterface
                 throw $e;
             }
             // Set Auth if Password Exist
-            if(isset($config['password'])){
+            if(isset($config['password']) && $config['password']){
                 try{
                     $this->redis->auth($config['password']);
                 }catch(Exception $e){
