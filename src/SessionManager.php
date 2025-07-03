@@ -125,13 +125,13 @@ class SessionManager
     }
 
     // Session End
-    public static function end()
+    public static function end(): bool
     {
         self::start();
         session_write_close();
         session_unset();
-        session_destroy();
         self::$started = false;
+        return session_destroy();
     }
 
     ############################################

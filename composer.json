@@ -11,8 +11,12 @@
     },
     "authors": [
         {
-            "name": "cb-master",
+            "name": "Cloud Bill Master",
             "email": "strblackhawk@gmail.com"
+        },
+        {
+            "name": "Showket Ahmed",
+            "email": "riyadhtayf@gmail.com"
         }
     ],
     "minimum-stability": "dev",
