@@ -109,8 +109,6 @@ class SessionManager
         }
         if(!self::$started && (session_status() !== PHP_SESSION_ACTIVE)){
             self::$handler->setup();
-            
-            // Handle Session
             session_set_save_handler(self::$handler, true);
 
             // Session Cookies
@@ -126,7 +124,6 @@ class SessionManager
     public static function end(): bool
     {
         self::start();
-        session_write_close();
         session_unset();
         self::$started = false;
         return session_destroy();
