@@ -108,9 +108,11 @@ class SessionManager
             throw new RuntimeException("Session handler not configured. Call SessionManager::init() first.");
         }
         if(!self::$started && (session_status() !== PHP_SESSION_ACTIVE)){
-            self::$handler->setup();
-            
-            // Handle Session
+            // PHP INI Set
+            // array_filter(self::$options, function($val,$key){
+            //     ini_set("session.{$key}", $val);
+            // }, ARRAY_FILTER_USE_BOTH);
+
             session_set_save_handler(self::$handler, true);
 
             // Session Cookies
@@ -126,7 +128,6 @@ class SessionManager
     public static function end(): bool
     {
         self::start();
-        session_write_close();
         session_unset();
         self::$started = false;
         return session_destroy();
