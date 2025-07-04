@@ -108,11 +108,7 @@ class SessionManager
             throw new RuntimeException("Session handler not configured. Call SessionManager::init() first.");
         }
         if(!self::$started && (session_status() !== PHP_SESSION_ACTIVE)){
-            // PHP INI Set
-            // array_filter(self::$options, function($val,$key){
-            //     ini_set("session.{$key}", $val);
-            // }, ARRAY_FILTER_USE_BOTH);
-
+            self::$handler->setup();
             session_set_save_handler(self::$handler, true);
 
             // Session Cookies
