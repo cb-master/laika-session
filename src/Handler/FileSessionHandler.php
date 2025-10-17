@@ -17,10 +17,16 @@ use Laika\Session\Interface\SessionDriverInterface;
 
 class FileSessionHandler implements SessionDriverInterface
 {
-    // Session Save Path
+    /**
+     * Session Save Path
+     * @var string $path
+     */
     protected string $path;
-    
-    // Session File Prefix
+
+    /**
+     * Session File Prefix
+     * @var string $prefix
+     */
     protected string $prefix;
     
     public function __construct(?array $config = null)
