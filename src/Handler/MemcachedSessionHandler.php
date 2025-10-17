@@ -5,10 +5,9 @@
  * Email: riyadhtayf@gmail.com 
  */
 
-namespace CBM\Session\Handler;
+namespace Laika\Session\Handler;
 
-use CBM\Session\Interface\SessionDriverInterface;
-use InvalidArgumentException;
+use Laika\Session\Interface\SessionDriverInterface;
 use RuntimeException;
 use Memcached;
 
@@ -18,17 +17,17 @@ class MemcachedSessionHandler implements SessionDriverInterface
 
     public function __construct(array|Memcached $config)
     {
-        if(is_array($config)){
+        if (is_array($config)) {
             $config['host'] ??= '127.0.0.1';
             $config['port'] ??= 11211;
             $config['prefix'] ??= 'CBMASTER';
             // Remove All Special Characters
             $config['prefix'] = strtoupper(preg_replace('/[^a-zA-Z_]/', '', $config['prefix']));
-            try{
+            try {
                 $this->memcached = new Memcached();
                 $this->memcached->addServer($config['host'], $config['port']);
                 $this->memcached->setOption(Memcached::OPT_PREFIX_KEY, $config['prefix']);
-            }catch(RuntimeException $e){
+            } catch (RuntimeException $e) {
                 throw $e;
             }
         }else{

@@ -5,9 +5,9 @@
  * Email: riyadhtayf@gmail.com 
  */
 
-namespace CBM\Session\Handler;
+namespace Laika\Session\Handler;
 
-use CBM\Session\Interface\SessionDriverInterface;
+use Laika\Session\Interface\SessionDriverInterface;
 use InvalidArgumentException;
 use RuntimeException;
 use PDO;
@@ -19,14 +19,14 @@ class PdoSessionHandler implements SessionDriverInterface
 
     public function __construct(array|PDO $config)
     {
-        if(is_array($config)){
-            if(!isset($config['dsn'])){
+        if (is_array($config)) {
+            if (!isset($config['dsn'])) {
                 throw new InvalidArgumentException("Key 'dsn' not Found!");
             }
-            if(!isset($config['username'])){
+            if (!isset($config['username'])) {
                 throw new InvalidArgumentException("Key 'username' not Found!");
             }
-            if(!isset($config['password'])){
+            if (!isset($config['password'])) {
                 throw new InvalidArgumentException("Key 'password' not Found!");
             }
 
@@ -35,11 +35,11 @@ class PdoSessionHandler implements SessionDriverInterface
                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
             ];
             $this->pdo = new PDO($config['dsn'], $config['username'], $config['password'], $options);
-        }else{
+        } else {
             $this->pdo = $config;
         }
 
-        if(!($this->pdo instanceof PDO)){
+        if (!($this->pdo instanceof PDO)) {
             throw new RuntimeException('Invalid Instance Provided!');
         }
     }

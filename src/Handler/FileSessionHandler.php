@@ -5,9 +5,9 @@
  * Email: riyadhtayf@gmail.com 
  */
 
-namespace CBM\Session\Handler;
+namespace Laika\Session\Handler;
 
-use CBM\Session\Interface\SessionDriverInterface;
+use Laika\Session\Interface\SessionDriverInterface;
 
 class FileSessionHandler implements SessionDriverInterface
 {
@@ -21,7 +21,7 @@ class FileSessionHandler implements SessionDriverInterface
     {
         $this->path = $config['path'] ?? session_save_path();
         $this->path = rtrim($this->path, '/\\');
-        if(!is_dir($this->path)) {
+        if (!is_dir($this->path)) {
             mkdir($this->path, 0777, true);
         }
         $this->prefix = strtoupper($config['prefix'] ?? 'CBMASTER');
@@ -62,8 +62,10 @@ class FileSessionHandler implements SessionDriverInterface
         $count = 0;
         $files = glob("{$this->path}/{$this->prefix}_*");
         foreach($files as $file){
-            if((filemtime($file) + $maxlifetime) < time()){
-                if(unlink($file)) $count++;
+            if ((filemtime($file) + $maxlifetime) < time()) {
+                if (unlink($file)) {
+                    $count++;
+                }
             }
         }
         return $count;

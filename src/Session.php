@@ -5,7 +5,7 @@
  * Email: riyadhtayf@gmail.com 
  */
 
-namespace CBM\Session;
+namespace Laika\Session;
 
 class Session
 {

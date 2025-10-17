@@ -5,7 +5,7 @@
  * Email: riyadhtayf@gmail.com 
  */
 
-namespace CBM\Session\Interface;
+namespace Laika\Session\Interface;
 
 use SessionHandlerInterface;
 
