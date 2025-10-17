@@ -28,7 +28,7 @@ class FileSessionHandler implements SessionDriverInterface
      * @var string $prefix
      */
     protected string $prefix;
-    
+
     public function __construct(?array $config = null)
     {
         $this->path = $config['path'] ?? session_save_path();
