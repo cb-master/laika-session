@@ -49,7 +49,6 @@ class RedisSessionHandler implements SessionDriverInterface
         } else {
             $this->redis = $config;
         }
-        
         if (!($this->redis instanceof Redis)) {
             throw new RuntimeException('Invalid Instance Provided!');
         }

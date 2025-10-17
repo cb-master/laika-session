@@ -27,7 +27,7 @@ class Session
         $for = strtoupper($for);
 
         if (is_string($name)) {
-            $name = [$name=>$value];
+            $name = [$name => $value];
         }
 
         array_filter($name, function ($val, $key) use ($for) {

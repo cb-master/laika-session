@@ -40,7 +40,7 @@ class FileSessionHandler implements SessionDriverInterface
     }
 
     // Session Open
-    public function open($savePath, $sessionName): bool 
+    public function open($savePath, $sessionName): bool
     {
         return true;
     }
