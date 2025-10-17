@@ -1,9 +1,15 @@
 <?php
+
 /**
- * Library Name: Cloud Bill Master PHP Session Handler
+ * Laika Database Session
  * Author: Showket Ahmed
- * Email: riyadhtayf@gmail.com 
+ * Email: riyadhtayf@gmail.com
+ * License: MIT
+ * This file is part of the Laika PHP MVC Framework.
+ * For the full copyright and license information, please view the LICENSE file that was distributed with this source code.
  */
+
+declare(strict_types=1);
 
 namespace Laika\Session\Handler;
 
@@ -50,13 +56,22 @@ class RedisSessionHandler implements SessionDriverInterface
     }
 
     // Session Handler Setup
-    public function setup(): void {}
+    public function setup(): void
+    {
+        //
+    }
 
     // Session Open
-    public function open($savePath, $sessionName): bool { return true; }
+    public function open($savePath, $sessionName): bool
+    {
+        return true;
+    }
 
     // Session Close
-    public function close(): bool { return true; }
+    public function close(): bool
+    {
+        return true;
+    }
 
     // Session Read
     public function read($id): string
@@ -78,5 +93,8 @@ class RedisSessionHandler implements SessionDriverInterface
     }
 
     // Session Garbase Collection
-    public function gc($maxlifetime): int|false { return 0; }
+    public function gc($maxlifetime): int
+    {
+        return 0;
+    }
 }

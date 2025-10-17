@@ -1,9 +1,15 @@
 <?php
+
 /**
- * Library Name: Cloud Bill Master PHP Session Handler
+ * Laika Database Session
  * Author: Showket Ahmed
- * Email: riyadhtayf@gmail.com 
+ * Email: riyadhtayf@gmail.com
+ * License: MIT
+ * This file is part of the Laika PHP MVC Framework.
+ * For the full copyright and license information, please view the LICENSE file that was distributed with this source code.
  */
+
+declare(strict_types=1);
 
 namespace Laika\Session;
 
@@ -129,7 +135,7 @@ class SessionManager
         if (is_array($config)) {
             $driver = strtolower($config['driver'] ?? 'file');
         } elseif (is_object($config)) {
-            if ($config instanceof PDO)  {
+            if ($config instanceof PDO) {
                 $driver = 'pdo';
             } elseif ($config instanceof Redis) {
                 $driver = 'redis';
@@ -182,10 +188,10 @@ class SessionManager
     protected static function defaultCookies(): array
     {
         return [
-			"path"      =>  '/',
-			"secure"    =>  true,
-			"httponly"  =>  true,
-			"samesite"  =>  "Strict"
-		];
+            "path"      =>  '/',
+            "secure"    =>  true,
+            "httponly"  =>  true,
+            "samesite"  =>  "Strict"
+        ];
     }
 }
