@@ -41,7 +41,7 @@ class RedisSessionHandler implements SessionDriverInterface
             if (isset($config['password']) && $config['password']) {
                 try {
                     $this->redis->auth($config['password']);
-                } catch(Exception $e) {
+                } catch (Exception $e) {
                     throw $e;
                 }
             }

@@ -26,11 +26,11 @@ class Session
         SessionManager::start();
         $for = strtoupper($for);
 
-        if(is_string($name)) {
+        if (is_string($name)) {
             $name = [$name=>$value];
         }
 
-        array_filter($name, function ($val, $key) use ($for){
+        array_filter($name, function ($val, $key) use ($for) {
             $_SESSION[$for][$key] = $val;
         }, ARRAY_FILTER_USE_BOTH);
     }
@@ -69,7 +69,7 @@ class Session
     public static function pop(string $key, string $for = 'APP'): void
     {
         $for = strtoupper($for);
-        if(self::has($key, $for)) {
+        if (self::has($key, $for)) {
             unset($_SESSION[$for][$key]);
         }
     }

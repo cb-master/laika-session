@@ -36,7 +36,7 @@ class MemcachedSessionHandler implements SessionDriverInterface
             } catch (RuntimeException $e) {
                 throw $e;
             }
-        }else{
+        } else {
             $this->memcached = $config;
         }
     }

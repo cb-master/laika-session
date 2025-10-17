@@ -174,12 +174,12 @@ class SessionManager
     {
         return [
             'name'              =>  'CBMASTER',
-			'use_only_cookies'	=>	true,
-			'use_strict_mode'	=>	true,
-			'gc_probability'	=>	1,
-			'gc_divisor'		=>	100,
-			'gc_maxlifetime'	=>	1440
-		];
+            'use_only_cookies'	=>	true,
+            'use_strict_mode'	=>	true,
+            'gc_probability'	=>	1,
+            'gc_divisor'		=>	100,
+            'gc_maxlifetime'	=>	1440
+        ];
     }
 
     /**

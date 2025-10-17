@@ -22,7 +22,7 @@ class FileSessionHandler implements SessionDriverInterface
     
     // Session File Prefix
     protected string $prefix;
-
+    
     public function __construct(?array $config = null)
     {
         $this->path = $config['path'] ?? session_save_path();
@@ -76,7 +76,7 @@ class FileSessionHandler implements SessionDriverInterface
     {
         $count = 0;
         $files = glob("{$this->path}/{$this->prefix}_*");
-        foreach($files as $file){
+        foreach ($files as $file) {
             if ((filemtime($file) + $maxlifetime) < time()) {
                 if (unlink($file)) {
                     $count++;
